@@ -13,7 +13,7 @@ terraform {
     bucket       = "assignment-tfstate-561758157329" # <-- change to a globally-unique name
     key          = "sandbox/terraform.tfstate"
     region       = "us-east-1"
-    use_lockfile = true
+    dynamodb_table = "assignment-tf-lock"
     encrypt      = true
   }
 }
