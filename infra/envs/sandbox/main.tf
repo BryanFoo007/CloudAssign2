@@ -51,9 +51,9 @@ module "rds" {
 module "monitoring" {
   source = "../../modules/monitoring"
 
-  name_prefix    = var.name_prefix
-  alert_email    = var.alert_email
-  asg_name       = module.asg.asg_name
+  name_prefix = var.name_prefix
+  alert_email = var.alert_email
+  asg_name    = module.asg.asg_name
 }
 
 module "secrets" {

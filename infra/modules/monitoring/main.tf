@@ -12,8 +12,8 @@ resource "aws_sns_topic_subscription" "email" {
   endpoint  = var.alert_email
 }
 resource "aws_cloudwatch_metric_alarm" "asg_cpu_high" {
-  alarm_name          = "${var.name_prefix}-asg-high-cpu"
-  alarm_description   = "Average CPU utilization of the application ASG is above the configured threshold."
+  alarm_name        = "${var.name_prefix}-asg-high-cpu"
+  alarm_description = "Average CPU utilization of the application ASG is above the configured threshold."
 
   comparison_operator = "GreaterThanThreshold"
   evaluation_periods  = var.evaluation_periods
