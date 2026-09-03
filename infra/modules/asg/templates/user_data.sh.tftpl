@@ -2,8 +2,7 @@
 set -euxo pipefail
 
 dnf update -y
-dnf install -y httpd php php-mysqlnd php-cli jq unzip mariadb105
-
+dnf install -y httpd php php-mysqlnd php-cli jq unzip mariadb105 amazon-ssm-agent
 # Pull DB connection details from Secrets Manager (assignment-db-credentials)
 # using this instance's IAM role - no credentials are ever hardcoded here.
 SECRET_JSON=$(aws secretsmanager get-secret-value \
@@ -44,6 +43,7 @@ else
   echo "<?php http_response_code(200); header('Content-Type: text/plain'); echo 'ok';" \
     > /var/www/html/healthz.php
 fi
-
+systemctl enable amazon-ssm-agent
+systemctl restart amazon-ssm-agent
 systemctl enable httpd
 systemctl restart httpd
