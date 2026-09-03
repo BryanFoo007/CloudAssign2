@@ -123,6 +123,7 @@ jobs:
 
           COMMAND_ID=$(aws ssm send-command \
             --document-name "AWS-RunShellScript" \
+            --instance-ids "$INSTANCE_ID" \
             --targets "Key=tag:App,Values=${{ env.APP_TAG }}" \
             --comment "${{ env.APP_TAG }} deploy" \
             --parameters '{"commands":[
