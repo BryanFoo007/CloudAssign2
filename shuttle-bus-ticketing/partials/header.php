@@ -25,7 +25,7 @@ function nav_active($page, $current) {
 </head>
 <body>
 <nav class="navbar">
-<a class="brand" href="index.php"><img src="assets/tarumt-logo.png" alt="TAR UMT" class="brand-logo">Campus Shuttle Bus Ticketing</a>
+<a class="brand" href="index.php"><img src="assets/tarumt-logo.png" alt="TAR UMT" class="brand-logo" height="30" style="height: 30px; width: auto; max-height: 30px;">Campus Shuttle Bus Ticketing</a>
 <div class="nav-links">
 <a href="index.php" class="<?= trim(nav_active('index.php', $currentPage)) ?>">Home</a>
 <a href="routes.php" class="<?= trim(nav_active('routes.php', $currentPage)) ?>">Routes</a>

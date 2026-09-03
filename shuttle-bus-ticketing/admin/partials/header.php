@@ -18,7 +18,7 @@
 </head>
 <body>
 <nav class="navbar">
-<a class="brand" href="routes.php"><img src="../assets/tarumt-logo.png" alt="TAR UMT" class="brand-logo">Admin &middot; Shuttle Bus Ticketing</a>
+<a class="brand" href="routes.php"><img src="../assets/tarumt-logo.png" alt="TAR UMT" class="brand-logo" height="30" style="height: 30px; width: auto; max-height: 30px;">Admin &middot; Shuttle Bus Ticketing</a>
 <div class="nav-links">
 <a href="routes.php" class="<?= $currentPage === 'routes.php' ? 'active' : '' ?>">Routes</a>
 <a href="tickets.php" class="<?= $currentPage === 'tickets.php' ? 'active' : '' ?>">Tickets</a>
