@@ -85,14 +85,14 @@ jobs:
           set -euo pipefail
 
           for i in $(seq 1 30); do
-            INSTANCE_IDS=$(aws ec2 describe-instances `
-              --filters "Name=tag:App,Values=${{ env.APP_TAG }}" "Name=instance-state-name,Values=running" `
+            INSTANCE_IDS=$(aws ec2 describe-instances \
+              --filters "Name=tag:App,Values=${{ env.APP_TAG }}" "Name=instance-state-name,Values=running" \
               --query "Reservations[].Instances[].InstanceId" --output text)
 
             if [ -n "$INSTANCE_IDS" ]; then
               IDS_CSV=$(echo "$INSTANCE_IDS" | tr '\t ' ',' | sed 's/,,*/,/g; s/^,//; s/,$//')
-              ONLINE_COUNT=$(aws ssm describe-instance-information `
-                --filters "Key=InstanceIds,Values=$IDS_CSV" `
+              ONLINE_COUNT=$(aws ssm describe-instance-information \
+                --filters "Key=InstanceIds,Values=$IDS_CSV" \
                 --query "length(InstanceInformationList[?PingStatus=='Online'])" --output text)
 
               if [ "$ONLINE_COUNT" != "0" ] && [ "$ONLINE_COUNT" != "None" ]; then
