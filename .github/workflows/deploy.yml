@@ -112,9 +112,8 @@ jobs:
         run: |
           set -euo pipefail
 
-          INSTANCE_IDS=$(aws ec2 describe-instances \
-            --filters "Name=tag:App,Values=${{ env.APP_TAG }}" "Name=instance-state-name,Values=running" \
-            --query "Reservations[].Instances[].InstanceId" --output text)
+          INSTANCE_IDS=$(aws ssm describe-instance-information \
+            --query "InstanceInformationList[?PingStatus=='Online'].InstanceId" --output text)
 
           if [ -z "$INSTANCE_IDS" ]; then
             echo "No running instances found for tag App=${{ env.APP_TAG }}"
