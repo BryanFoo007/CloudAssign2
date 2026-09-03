@@ -1,7 +1,6 @@
 #!/bin/bash
 set -euxo pipefail
 
-dnf update -y
 dnf install -y httpd php php-mysqlnd php-cli jq unzip mariadb105 amazon-ssm-agent
 # Pull DB connection details from Secrets Manager (assignment-db-credentials)
 # using this instance's IAM role - no credentials are ever hardcoded here.
