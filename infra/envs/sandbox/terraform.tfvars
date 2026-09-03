@@ -4,3 +4,4 @@
 aws_region  = "us-east-1"
 name_prefix = "assignment"
 alert_email = "fooys-wm25@student.tarc.edu.my"
+instance_profile_name = "LabInstanceProfile"
