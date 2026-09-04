@@ -1,7 +1,7 @@
 :root {
   color-scheme: light;
 
-  --accent: #9deb1f;
+  --accent: #9deb1fe7;
   --accent-dark: #bd199c;
   --accent-soft: #eaf1fe;
   --bg: #f5f6f8;
@@ -51,8 +51,8 @@
 :root[data-theme="dark"] {
   color-scheme: dark;
 
-  --accent: #707c8d;
-  --accent-dark: #c1c8d1;
+  --accent: #846ecc;
+  --accent-dark: #9d3cc3;
   --accent-soft: #202a38;
   --bg: #111318;
   --surface: #191c22;
