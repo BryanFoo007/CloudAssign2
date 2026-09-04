@@ -10,6 +10,11 @@ resource "aws_s3_bucket" "uploads" {
   # bucket, so without force_destroy the destroy would fail on this resource.
   force_destroy = true
 
+  # AWS Academy Learner Lab SCPs block s3:GetBucketObjectLockConfiguration
+  # with an explicit deny. Setting this explicitly to false tells the Terraform
+  # AWS provider to skip that API call entirely during plan/apply/refresh.
+  object_lock_enabled = false
+
   tags = {
     Name = "${var.name_prefix}-s3-uploads"
   }
