@@ -51,8 +51,8 @@
 :root[data-theme="dark"] {
   color-scheme: dark;
 
-  --accent: #5b9bf5;
-  --accent-dark: #3f7fd9;
+  --accent: #707c8d;
+  --accent-dark: #c1c8d1;
   --accent-soft: #202a38;
   --bg: #111318;
   --surface: #191c22;
