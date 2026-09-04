@@ -69,10 +69,7 @@ function handle_image_upload($file, $uploadDir, $prefix = 'photo') {
         return [null, null];
     }
     if ($file['error'] !== UPLOAD_ERR_OK) {
-        if ($file['error'] === UPLOAD_ERR_INI_SIZE || $file['error'] === UPLOAD_ERR_FORM_SIZE) {
-            return [null, 'The uploaded image exceeds the server upload limit. Please use an image smaller than 2MB or compress it.'];
-        }
-        return [null, 'Image upload failed (code ' . $file['error'] . '). Please try again.'];
+        return [null, 'Image upload failed. Please try again.'];
     }
     if ($file['size'] > 5 * 1024 * 1024) {
         return [null, 'Image must be smaller than 5MB.'];
