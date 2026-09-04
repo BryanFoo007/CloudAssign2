@@ -126,9 +126,6 @@ jobs:
             --comment "${{ env.APP_TAG }} deploy" \
             --parameters '{"commands":[
               "cloud-init status --wait",
-              "sudo sed -i 's/^upload_max_filesize = .*/upload_max_filesize = 10M/' /etc/php.ini 2>/dev/null || true",
-              "sudo sed -i 's/^post_max_size = .*/post_max_size = 12M/' /etc/php.ini 2>/dev/null || true",
-              "sudo systemctl restart php-fpm 2>/dev/null || true",
               "aws s3 cp s3://${{ env.ARTIFACT_BUCKET }}/${{ env.ARTIFACT_PREFIX }}/assignment-app.zip /tmp/assignment-app.zip",
               "sudo rm -rf /var/www/html/*",
               "sudo unzip -o /tmp/assignment-app.zip -d /var/www/html",

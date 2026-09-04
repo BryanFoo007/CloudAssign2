@@ -42,9 +42,6 @@ else
   echo "<?php http_response_code(200); header('Content-Type: text/plain'); echo 'ok';" \
     > /var/www/html/healthz.php
 fi
-sed -i 's/^upload_max_filesize = .*/upload_max_filesize = 10M/' /etc/php.ini || true
-sed -i 's/^post_max_size = .*/post_max_size = 12M/' /etc/php.ini || true
-systemctl restart php-fpm 2>/dev/null || true
 systemctl enable amazon-ssm-agent
 systemctl restart amazon-ssm-agent
 systemctl enable httpd
