@@ -70,11 +70,11 @@ jobs:
 
       - name: Terraform plan
         if: ${{ inputs.action == 'plan' }}
-        run: terraform plan
+        run: terraform plan -refresh=false
 
       - name: Terraform apply
         if: ${{ inputs.action == 'apply' }}
-        run: terraform apply -auto-approve
+        run: terraform apply -auto-approve -refresh=false
 
       # Expose the resolved bucket name so deploy.yml (which calls this workflow)
       # can target the right bucket without hardcoding it - Terraform stays the
@@ -86,4 +86,4 @@ jobs:
 
       - name: Terraform destroy
         if: ${{ inputs.action == 'destroy' }}
-        run: terraform destroy -auto-approve
+        run: terraform destroy -auto-approve -refresh=false
